@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    position: 'relative'
   },
   background: {
     position: 'absolute',
@@ -50,7 +51,14 @@ const styles = StyleSheet.create({
     left: 0,
     width: '100%',
     height: '100%',
-    objectFit: 'cover'
+    objectFit: 'cover',
+    zIndex: 1
+  },
+  contentWrapper: {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    zIndex: 2
   },
   textContainer: {
     position: 'absolute',
@@ -67,66 +75,68 @@ const Certificate = ({name, bookName, isbn, certificateNumber, dateOfIssuance}) 
     <Page size="A4" orientation="portrait" style={styles.page}>
       <Image style={styles.background} src={certificate}/>
       
-      {/* Author Name */}
-      <View style={[styles.textContainer, { top: 280 }]}>
-        <Text style={{
-          fontFamily: "Great Vibes",
-          fontSize: 36,
-          color: "#2c3e50",
-          textAlign: 'center',
-          fontWeight: 'bold',
-          width: '100%'
-        }}>{name}</Text>
-      </View>
+      <View style={styles.contentWrapper}>
+        {/* Author Name */}
+        <View style={[styles.textContainer, { top: 280 }]}>
+          <Text style={{
+            fontFamily: "Great Vibes",
+            fontSize: 36,
+            color: "#2c3e50",
+            textAlign: 'center',
+            fontWeight: 'bold',
+            width: '100%'
+          }}>{name}</Text>
+        </View>
 
-      {/* Book Title */}
-      <View style={[styles.textContainer, { top: 360 }]}>
-        <Text style={{
-          fontFamily: 'Alegreya',
-          fontSize: 20,
-          color: "#2c3e50",
-          textAlign: 'center',
-          fontWeight: 'bold',
-          fontStyle: 'italic',
-          width: '100%',
-          paddingHorizontal: 20
-        }}>"{bookName}"</Text>
-      </View>
+        {/* Book Title */}
+        <View style={[styles.textContainer, { top: 360 }]}>
+          <Text style={{
+            fontFamily: 'Alegreya',
+            fontSize: 20,
+            color: "#2c3e50",
+            textAlign: 'center',
+            fontWeight: 'bold',
+            fontStyle: 'italic',
+            width: '100%',
+            paddingHorizontal: 20
+          }}>"{bookName}"</Text>
+        </View>
 
-      {/* ISBN */}
-      <View style={[styles.textContainer, { top: 440 }]}>
-        <Text style={{
-          fontFamily: 'Alegreya',
-          fontSize: 16,
-          color: "#2c3e50",
-          textAlign: 'center',
-          fontWeight: 'bold',
-          width: '100%'
-        }}>{isbn}</Text>
-      </View>
+        {/* ISBN */}
+        <View style={[styles.textContainer, { top: 440 }]}>
+          <Text style={{
+            fontFamily: 'Alegreya',
+            fontSize: 16,
+            color: "#2c3e50",
+            textAlign: 'center',
+            fontWeight: 'bold',
+            width: '100%'
+          }}>{isbn}</Text>
+        </View>
 
-      {/* Certificate Number */}
-      <View style={[styles.textContainer, { top: 640 }]}>
-        <Text style={{
-          fontFamily: 'Alegreya',
-          fontSize: 12,
-          color: "#2c3e50",
-          textAlign: 'center',
-          fontWeight: 'bold',
-          width: '100%'
-        }}>{certificateNumber}</Text>
-      </View>
+        {/* Certificate Number */}
+        <View style={[styles.textContainer, { top: 640 }]}>
+          <Text style={{
+            fontFamily: 'Alegreya',
+            fontSize: 12,
+            color: "#2c3e50",
+            textAlign: 'center',
+            fontWeight: 'bold',
+            width: '100%'
+          }}>{certificateNumber}</Text>
+        </View>
 
-      {/* Date of Issuance */}
-      <View style={[styles.textContainer, { top: 680 }]}>
-        <Text style={{
-          fontFamily: 'Alegreya',
-          fontSize: 12,
-          color: "#2c3e50",
-          textAlign: 'center',
-          fontWeight: 'bold',
-          width: '100%'
-        }}>{dateOfIssuance}</Text>
+        {/* Date of Issuance */}
+        <View style={[styles.textContainer, { top: 680 }]}>
+          <Text style={{
+            fontFamily: 'Alegreya',
+            fontSize: 12,
+            color: "#2c3e50",
+            textAlign: 'center',
+            fontWeight: 'bold',
+            width: '100%'
+          }}>{dateOfIssuance}</Text>
+        </View>
       </View>
     </Page>
   </Document>
