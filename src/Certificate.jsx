@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     padding: 0,
-    margin: 0
+    margin: 0,
+    width: '100%',
+    height: '100%'
   },
   background: {
     position: 'absolute',
@@ -48,114 +50,82 @@ const styles = StyleSheet.create({
     left: 0,
     width: '100%',
     height: '100%',
-    objectFit: 'none'
+    objectFit: 'cover'
+  },
+  textContainer: {
+    position: 'absolute',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 40
   }
 });
 
-
 const Certificate = ({name, bookName, isbn, certificateNumber, dateOfIssuance}) => (
   <Document>
-    <Page size={{ width: 612, height: 792 }} style={styles.page}>
+    <Page size="A4" orientation="portrait" style={styles.page}>
       <Image style={styles.background} src={certificate}/>
       
-      {/* Author Name - positioned at the first placeholder */}
-      <View style={{
-        position: 'absolute',
-        top: '35%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-      }}>
+      {/* Author Name */}
+      <View style={[styles.textContainer, { top: 280 }]}>
         <Text style={{
           fontFamily: "Great Vibes",
-          fontSize: 42,
-          color: "#2c3e50",
-          textAlign: 'center',
-          fontWeight: 'bold'
-        }}>{name}</Text>
-      </View>
-
-      {/* Book Title - positioned at the second placeholder */}
-      <View style={{
-        position: 'absolute',
-        top: '45%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '90%',
-      }}>
-        <Text style={{
-          fontFamily: 'Alegreya',
-          fontSize: 22,
+          fontSize: 36,
           color: "#2c3e50",
           textAlign: 'center',
           fontWeight: 'bold',
-          fontStyle: 'italic'
+          width: '100%'
+        }}>{name}</Text>
+      </View>
+
+      {/* Book Title */}
+      <View style={[styles.textContainer, { top: 360 }]}>
+        <Text style={{
+          fontFamily: 'Alegreya',
+          fontSize: 20,
+          color: "#2c3e50",
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontStyle: 'italic',
+          width: '100%',
+          paddingHorizontal: 20
         }}>"{bookName}"</Text>
       </View>
 
-      {/* ISBN - positioned at the third placeholder */}
-      <View style={{
-        position: 'absolute',
-        top: '55%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-      }}>
+      {/* ISBN */}
+      <View style={[styles.textContainer, { top: 440 }]}>
         <Text style={{
           fontFamily: 'Alegreya',
-          fontSize: 18,
+          fontSize: 16,
           color: "#2c3e50",
           textAlign: 'center',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          width: '100%'
         }}>{isbn}</Text>
       </View>
 
-      {/* Certificate Number - positioned at the fourth placeholder */}
-      <View style={{
-        position: 'absolute',
-        top: '80%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-      }}>
+      {/* Certificate Number */}
+      <View style={[styles.textContainer, { top: 640 }]}>
         <Text style={{
           fontFamily: 'Alegreya',
-          fontSize: 14,
+          fontSize: 12,
           color: "#2c3e50",
           textAlign: 'center',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          width: '100%'
         }}>{certificateNumber}</Text>
       </View>
 
-      {/* Date of Issuance - positioned at the fifth placeholder */}
-      <View style={{
-        position: 'absolute',
-        top: '85%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-      }}>
+      {/* Date of Issuance */}
+      <View style={[styles.textContainer, { top: 680 }]}>
         <Text style={{
           fontFamily: 'Alegreya',
-          fontSize: 14,
+          fontSize: 12,
           color: "#2c3e50",
           textAlign: 'center',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          width: '100%'
         }}>{dateOfIssuance}</Text>
       </View>
     </Page>
@@ -163,4 +133,3 @@ const Certificate = ({name, bookName, isbn, certificateNumber, dateOfIssuance}) 
 );
 
 export default Certificate;
-
